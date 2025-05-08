@@ -1,61 +1,101 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# 🤝 Donary – Platform Donasi Sosial
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+<div align="center">
 
-## About Laravel
+![alt text](https://github.com/auliazhrrmdhni/Donary/blob/main/lOGO_Universitas%20Sulawesi%20Barat%20-.jpg?raw=true)
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+<br><br>
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+<strong>Aulia Zahra Ramadhani</strong><br>
+<strong>D0222346</strong><br>
+<strong>Framework Web Based</strong><br>
+Program Studi Informatika<br>
+Fakultas Teknik<br>
+Universitas Sulawesi Barat<br>
+<strong>2025</strong>
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+</div>
 
-## Learning Laravel
+---
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+## 🎯 Role dan Fitur-fiturnya
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+### 1. Admin
+- Buat akun/login
+- Mengelola semua data (donatur, penggalang dana, donasi)
+- Menyetujui/menolak donasi yang diajukan penggalang dana
+- Menghapus donasi
+- Melihat laporan jumlah donasi yang masuk secara keseluruhan
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+### 2. Penggalang Dana
+- Buat akun/login
+- Membuat, mengedit atau menghapus campaign donasi
+- Melihat status pengajuan (ditolak, disetujui, sedang ditinjau)
+- Melihat jumlah donasi yang terkumpul (campaign yang diajukan)
 
-## Laravel Sponsors
+### 3. Donatur
+- Buat akun/login
+- Melihat daftar donasi yang ada
+- Memberi donasi
+- Melihat riwayat donasi
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+---
 
-### Premium Partners
+## 🗂️ Tabel-Tabel Database
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development/)**
-- **[Active Logic](https://activelogic.com)**
+### 1. **Tabel pengguna**
 
-## Contributing
+| Nama Field  | Tipe Data   | Keterangan                      |
+|-------------|-------------|----------------------------------|
+| id          | INT (PK)    | Primary key                     |
+| nama        | VARCHAR     | Nama pengguna                   |
+| email       | VARCHAR     | Email (unik)                    |
+| password    | VARCHAR     | Kata sandi                      |
+| role        | ENUM        | Role: admin, penggalang, donatur|
+| created_at  | TIMESTAMP   | Waktu dibuat                    |
+| updated_at  | TIMESTAMP   | Waktu diperbarui                |
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+---
 
-## Code of Conduct
+### 2. **Tabel Campaigns**
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+| Nama Field        | Tipe Data      | Keterangan                              |
+|-------------------|----------------|------------------------------------------|
+| id                | INT (PK)       | Primary key                              |
+| id_penggalang     | INT (FK)       | ID penggalang dana (relasi ke pengguna)  |
+| judul             | VARCHAR        | Judul campaign                           |
+| deskripsi         | TEXT           | Deskripsi lengkap                        |
+| target_donasi     | DECIMAL(12,2)  | Target nominal donasi                    |
+| donasi_sekarang   | DECIMAL(12,2)  | Nominal donasi terkumpul                 |
+| status            | ENUM           | Status: pending, disetujui, ditolak      |
+| image_url         | VARCHAR        | URL gambar campaign (opsional)           |
+| created_at        | TIMESTAMP      | Waktu dibuat                             |
+| updated_at        | TIMESTAMP      | Waktu terakhir diupdate                  |
 
-## Security Vulnerabilities
+---
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+### 3. **Tabel Donasi**
 
-## License
+| Nama Field          | Tipe Data       | Keterangan                             |
+|---------------------|------------------|----------------------------------------|
+| id                  | INT (PK)         | Primary key                            |
+| id_campaign         | INT (FK)         | ID campaign (relasi ke campaigns)      |
+| id_donatur          | INT (FK)         | ID donatur (relasi ke pengguna)        |
+| nominal             | DECIMAL(10,2)    | Nominal donasi                         |
+| metode_pembayaran   | VARCHAR          | Pilihan metode pembayaran              |
+| created_at          | TIMESTAMP        | Waktu donasi dilakukan                 |
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+---
+
+## 🔗 Relasi Antar Tabel
+
+- `pengguna` ↔ `campaigns`  
+  **One-to-Many**: Satu pengguna (penggalang dana) bisa membuat banyak campaign.
+
+- `campaigns` ↔ `donasi`  
+  **One-to-Many**: Satu campaign bisa menerima banyak donasi dari berbagai donatur.
+
+- `pengguna` ↔ `donasi`  
+  **One-to-Many**: Satu pengguna (donatur) bisa memberi banyak donasi.
+
+---
