@@ -43,7 +43,7 @@ Universitas Sulawesi Barat<br>
 
 ## 🗂️ Tabel-Tabel Database
 
-### 1. **Tabel Users**
+### 1. **Tabel pengguna**
 
 | Nama Field  | Tipe Data   | Keterangan                      |
 |-------------|-------------|----------------------------------|
@@ -62,7 +62,7 @@ Universitas Sulawesi Barat<br>
 | Nama Field        | Tipe Data      | Keterangan                              |
 |-------------------|----------------|------------------------------------------|
 | id                | INT (PK)       | Primary key                              |
-| id_penggalang     | INT (FK)       | ID penggalang dana (relasi ke users)     |
+| id_penggalang     | INT (FK)       | ID penggalang dana (relasi ke pengguna)  |
 | judul             | VARCHAR        | Judul campaign                           |
 | deskripsi         | TEXT           | Deskripsi lengkap                        |
 | target_donasi     | DECIMAL(12,2)  | Target nominal donasi                    |
@@ -80,7 +80,7 @@ Universitas Sulawesi Barat<br>
 |---------------------|------------------|----------------------------------------|
 | id                  | INT (PK)         | Primary key                            |
 | id_campaign         | INT (FK)         | ID campaign (relasi ke campaigns)      |
-| id_donatur          | INT (FK)         | ID donatur (relasi ke users)           |
+| id_donatur          | INT (FK)         | ID donatur (relasi ke pengguna)        |
 | nominal             | DECIMAL(10,2)    | Nominal donasi                         |
 | metode_pembayaran   | VARCHAR          | Pilihan metode pembayaran              |
 | created_at          | TIMESTAMP        | Waktu donasi dilakukan                 |
@@ -89,13 +89,13 @@ Universitas Sulawesi Barat<br>
 
 ## 🔗 Relasi Antar Tabel
 
-- `users` ↔ `campaigns`  
-  **One-to-Many**: Satu user (penggalang dana) bisa membuat banyak campaign.
+- `pengguna` ↔ `campaigns`  
+  **One-to-Many**: Satu pengguna (penggalang dana) bisa membuat banyak campaign.
 
 - `campaigns` ↔ `donasi`  
   **One-to-Many**: Satu campaign bisa menerima banyak donasi dari berbagai donatur.
 
-- `users` ↔ `donasi`  
-  **One-to-Many**: Satu user (donatur) bisa memberi banyak donasi.
+- `pengguna` ↔ `donasi`  
+  **One-to-Many**: Satu pengguna (donatur) bisa memberi banyak donasi.
 
 ---
