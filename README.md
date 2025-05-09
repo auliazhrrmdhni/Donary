@@ -1,6 +1,6 @@
-# 🤝 Donary – Platform Donasi Sosial
-
 <div align="center">
+
+# 🤝 Donary – Platform Donasi Sosial
 
 ![alt text](https://github.com/auliazhrrmdhni/Donary/blob/main/lOGO_Universitas%20Sulawesi%20Barat%20-.jpg?raw=true)
 
