@@ -38,6 +38,7 @@ Universitas Sulawesi Barat<br>
 - Melihat daftar donasi yang ada
 - Memberi donasi
 - Melihat riwayat donasi
+- Menyimpan campaign favorit
 
 ---
 
@@ -87,6 +88,17 @@ Universitas Sulawesi Barat<br>
 
 ---
 
+### 4. **Tabel Campaigns Favorit (`campaigns_favorit`)**
+
+| Nama Field      | Tipe Data  | Keterangan                                           |
+|------------------|------------|------------------------------------------------------|
+| id               | INT (PK)   | Primary key                                          |
+| id_donatur       | INT (FK)   | ID donatur (relasi ke pengguna)                     |
+| id_campaign      | INT (FK)   | ID campaign (relasi ke campaigns)                   |
+| created_at       | TIMESTAMP | Waktu saat campaign difavoritkan oleh donatur       |
+
+---
+
 ## 🔗 Relasi Antar Tabel
 
 - `pengguna` ↔ `campaigns`  
@@ -97,5 +109,8 @@ Universitas Sulawesi Barat<br>
 
 - `pengguna` ↔ `donasi`  
   **One-to-Many**: Satu pengguna (donatur) bisa memberi banyak donasi.
+
+- `pengguna` ↔ `campaigns` (via `campaigns_favorit`)  
+  **Many-to-Many**: Satu pengguna (donatur) bisa menyimpan banyak campaign sebagai favorit, dan satu campaign bisa difavoritkan oleh banyak donatur.
 
 ---
