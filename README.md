@@ -82,8 +82,8 @@ Universitas Sulawesi Barat<br>
 | id                  | INT (PK)         | Primary key                            |
 | id_campaign         | INT (FK)         | ID campaign (relasi ke campaigns)      |
 | id_donatur          | INT (FK)         | ID donatur (relasi ke pengguna)        |
-| nominal             | DECIMAL(10,2)    | Nominal donasi                         |
-| metode_pembayaran   | VARCHAR          | Pilihan metode pembayaran              |
+| nominal             | INT              | Nominal donasi                         |
+| metode_pembayaran   | ENUM             | Pilihan metode pembayaran: VA, TF      |
 | created_at          | TIMESTAMP        | Waktu donasi dilakukan                 |
 
 ---
