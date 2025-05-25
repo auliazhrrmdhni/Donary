@@ -66,8 +66,8 @@ Universitas Sulawesi Barat<br>
 | id_penggalang     | INT (FK)       | ID penggalang dana (relasi ke pengguna)  |
 | judul             | VARCHAR        | Judul campaign                           |
 | deskripsi         | TEXT           | Deskripsi lengkap                        |
-| target_donasi     | INTEGER        | Target nominal donasi                    |
-| donasi_sekarang   | INTEGER        | Nominal donasi terkumpul                 |
+| target_donasi     | INT            | Target nominal donasi                    |
+| donasi_sekarang   | INT            | Nominal donasi terkumpul                 |
 | status            | ENUM           | Status: pending, disetujui, ditolak      |
 | image_url         | VARCHAR        | URL gambar campaign (opsional)           |
 | created_at        | TIMESTAMP      | Waktu dibuat                             |
