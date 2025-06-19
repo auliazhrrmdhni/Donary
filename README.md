@@ -21,7 +21,7 @@ Universitas Sulawesi Barat<br>
 ## 🎯 Role dan Fitur-fiturnya
 
 ### 1. Admin
-- Buat akun/login
+- Login
 - Mengelola semua data (donatur, penggalang dana, donasi)
 - Menyetujui/menolak donasi yang diajukan penggalang dana
 - Menghapus donasi
