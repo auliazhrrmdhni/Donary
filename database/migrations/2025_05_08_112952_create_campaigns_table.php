@@ -16,8 +16,8 @@ return new class extends Migration
             $table->foreignId('id_penggalang')->constrained('pengguna')->onDelete('cascade');
             $table->string('judul');
             $table->text('deskripsi');
-            $table->decimal('target_donasi', 12, 2);
-            $table->decimal('donasi_sekarang', 12, 2)->default(0);
+            $table->integer('target_donasi');
+            $table->integer('donasi_sekarang')->nullable();
             $table->enum('status', ['pending', 'disetujui', 'ditolak'])->default('pending');
             $table->string('image_url')->nullable();
             $table->timestamps();
